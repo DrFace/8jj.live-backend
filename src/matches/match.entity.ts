@@ -12,6 +12,7 @@ export class Match {
   @PrimaryGeneratedColumn()
   id: number;
 
+  
   @Index()
   @Column({ type: 'varchar', length: 50 })
   sport: string; // cricket | football | basketball
