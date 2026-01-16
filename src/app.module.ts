@@ -13,6 +13,14 @@ import { Match } from './matches/match.entity';
 import { ChatMessage } from './chat/chat-message.entity';
 import { AnalyticsEvent } from './analytics/analytics-event.entity';
 
+// NEW entities
+import { Sport } from './sports/sport.entity';
+import { Channel } from './channels/channel.entity';
+import { NewsArticle } from './news/news-article.entity';
+import { Highlight } from './highlights/highlight.entity';
+import { Event } from './events/event.entity';
+import { ShopItem } from './shop/shop-item.entity';
+
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
@@ -26,7 +34,19 @@ import { AnalyticsEvent } from './analytics/analytics-event.entity';
         username: cfg.get('DB_USERNAME'),
         password: cfg.get('DB_PASSWORD'),
         database: cfg.get('DB_NAME'),
-        entities: [User, Match, ChatMessage, AnalyticsEvent],
+        entities: [
+          User,
+          Match,
+          ChatMessage,
+          AnalyticsEvent,
+          // NEW
+          Sport,
+          Channel,
+          NewsArticle,
+          Highlight,
+          Event,
+          ShopItem,
+        ],
         synchronize: true, // ✅ for fast MVP (use migrations later)
       }),
     }),
