@@ -1,6 +1,12 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { SportsModule } from './sports/sports.module';
+import { ChannelsModule } from './channels/channels.module';
+import { NewsModule } from './news/news.module';
+import { HighlightsModule } from './highlights/highlights.module';
+import { EventsModule } from './events/events.module';
+import { ShopModule } from './shop/shop.module';
 
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
@@ -24,6 +30,12 @@ import { ShopItem } from './shop/shop-item.entity';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
+    SportsModule,
+    ChannelsModule,
+    NewsModule,
+    HighlightsModule,
+    EventsModule,
+    ShopModule,
 
     TypeOrmModule.forRootAsync({
       inject: [ConfigService],
